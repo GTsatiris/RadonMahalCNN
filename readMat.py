@@ -49,28 +49,57 @@ def calculateMahalMatrix(path):
     return mahalMatrix
 
 def calculateRadonDataset(path):
-    dirPath = path + '_DATA'
+
+    dirPath = path + '_NPZ'
     os.mkdir(dirPath)
 
     mahalMatrix = calculateMahalMatrix(path)
 
-    for i in range(10, mahalMatrix.shape[0]+1):
+    clNum = 0
+    classNum = ['a1_', 'a2_', 'a3_', 'a4_', 'a5_', 'a6_', 'a7_', 'a8_', 'a9_', 'a10']
+    for cN in range(0, len(classNum)):
+        if classNum[cN] in path:
+            clNum = cN + 1
+
+    for i in range(5, mahalMatrix.shape[0]+1):
         tempMat = mahalMatrix[:i, :]
 
         # theta = np.linspace(0., 180., max(mahalMatrix.shape), endpoint=False)
         sinogram = radon(tempMat, theta=None, circle=False)
-
+        
         pad_w = (180 - sinogram.shape[0])/2
-        if pad_w == math.floor(pad_w):
-            # print("IS FLOAT")
-            pad_w = math.floor(pad_w)
-            npad = ((pad_w, pad_w), (0, 0))
+
+        if(pad_w >= 0):
+            if pad_w == math.floor(pad_w):
+                pad_w = math.floor(pad_w)
+                npad = ((pad_w, pad_w), (0, 0))
+            else:
+                pad_w = math.floor(pad_w)
+                npad = ((pad_w, pad_w+1), (0, 0))
+
+            padded_sino = np.pad(sinogram, pad_width=npad, mode='constant', constant_values=0)
+
+            np.savez(dirPath+'/frame_{}'.format(str(i)), sino = padded_sino, clNum = clNum)
+            # io.imsave(dirPath+'/frame_{}.png'.format(str(i)), padded_sino)
+
         else:
-            pad_w = math.floor(pad_w)
-            npad = ((pad_w, pad_w+1), (0, 0))
+            if pad_w == math.ceil(pad_w):
+                pad_w = math.floor(pad_w)
+                npad_1 = abs(pad_w)
+                npad_2 = abs(pad_w)
+            else:
+                pad_w = math.floor(pad_w)
+                npad_1 = abs(pad_w)
+                npad_2 = abs(pad_w) - 1
 
-        padded_sino = np.pad(sinogram, pad_width=npad, mode='constant', constant_values=0)
+            cropped_sino = sinogram[npad_1:sinogram.shape[0]-npad_2, :]
 
-        io.imsave(dirPath+'/test_result_{}.png'.format(str(i)), padded_sino)
+            np.savez(dirPath+'/frame_{}'.format(str(i)), sino = cropped_sino, clNum = clNum)
+            # io.imsave(dirPath + '/frame_{}.png'.format(str(i)), cropped_sino)
 
-calculateRadonDataset("Data/a1_s1_t1_skel_K2.mat")
+
+# calculateRadonDataset("Data/a1_s2_t1_skel_K2.mat")
+directory = os.listdir('Data')
+for fname in directory:
+    if 'skel' in fname:
+        calculateRadonDataset("Data/"+fname)
