@@ -66,7 +66,7 @@ def calculateRadonDataset(path):
 
         # theta = np.linspace(0., 180., max(mahalMatrix.shape), endpoint=False)
         sinogram = radon(tempMat, theta=None, circle=False)
-        
+
         pad_w = (180 - sinogram.shape[0])/2
 
         if(pad_w >= 0):
@@ -100,6 +100,6 @@ def calculateRadonDataset(path):
 
 # calculateRadonDataset("Data/a1_s2_t1_skel_K2.mat")
 directory = os.listdir('Data')
-for fname in directory:
-    if 'skel' in fname:
-        calculateRadonDataset("Data/"+fname)
+# for fname in directory:
+#     if 'skel' in fname:
+#         calculateRadonDataset("Data/"+fname)
