@@ -1,0 +1,601 @@
+D:\Kinect2Dataset>python trainCNN.py
+2020-02-15 11:19:43.129894: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cudart64_101.dll
+Loading data...
+[========================================================================] 100%
+Partitioning data...
+[========================================================================] 100%
+2020-02-15 11:20:40.038573: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library nvcuda.dll
+2020-02-15 11:20:40.114538: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1555] Found device 0 with properties:
+pciBusID: 0000:01:00.0 name: GeForce GTX 1060 computeCapability: 6.1
+coreClock: 1.6705GHz coreCount: 10 deviceMemorySize: 6.00GiB deviceMemoryBandwidth: 178.99GiB/s
+2020-02-15 11:20:40.131161: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cudart64_101.dll
+2020-02-15 11:20:40.207121: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cublas64_10.dll
+2020-02-15 11:20:40.280749: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cufft64_10.dll
+2020-02-15 11:20:40.297871: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library curand64_10.dll
+2020-02-15 11:20:40.386332: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cusolver64_10.dll
+2020-02-15 11:20:40.513959: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cusparse64_10.dll
+2020-02-15 11:20:40.635014: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cudnn64_7.dll
+2020-02-15 11:20:40.643474: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1697] Adding visible gpu devices: 0
+2020-02-15 11:20:40.651640: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2
+2020-02-15 11:20:40.659566: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1555] Found device 0 with properties:
+pciBusID: 0000:01:00.0 name: GeForce GTX 1060 computeCapability: 6.1
+coreClock: 1.6705GHz coreCount: 10 deviceMemorySize: 6.00GiB deviceMemoryBandwidth: 178.99GiB/s
+2020-02-15 11:20:40.673959: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cudart64_101.dll
+2020-02-15 11:20:40.679532: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cublas64_10.dll
+2020-02-15 11:20:40.686431: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cufft64_10.dll
+2020-02-15 11:20:40.692755: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library curand64_10.dll
+2020-02-15 11:20:40.703205: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cusolver64_10.dll
+2020-02-15 11:20:40.708947: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cusparse64_10.dll
+2020-02-15 11:20:40.715063: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cudnn64_7.dll
+2020-02-15 11:20:40.720903: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1697] Adding visible gpu devices: 0
+2020-02-15 11:20:45.089555: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1096] Device interconnect StreamExecutor with strength 1 edge matrix:
+2020-02-15 11:20:45.097636: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1102]      0
+2020-02-15 11:20:45.101752: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] 0:   N
+2020-02-15 11:20:45.111332: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1241] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 4702 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1060, pci bus id: 0000:01:00.0, compute capability: 6.1)
+Model: "sequential"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #
+=================================================================
+conv2d (Conv2D)              (None, 178, 178, 32)      320
+_________________________________________________________________
+conv2d_1 (Conv2D)            (None, 176, 176, 32)      9248
+_________________________________________________________________
+max_pooling2d (MaxPooling2D) (None, 88, 88, 32)        0
+_________________________________________________________________
+dropout (Dropout)            (None, 88, 88, 32)        0
+_________________________________________________________________
+conv2d_2 (Conv2D)            (None, 86, 86, 64)        18496
+_________________________________________________________________
+conv2d_3 (Conv2D)            (None, 84, 84, 64)        36928
+_________________________________________________________________
+max_pooling2d_1 (MaxPooling2 (None, 42, 42, 64)        0
+_________________________________________________________________
+dropout_1 (Dropout)          (None, 42, 42, 64)        0
+_________________________________________________________________
+flatten (Flatten)            (None, 112896)            0
+_________________________________________________________________
+dense (Dense)                (None, 256)               28901632
+_________________________________________________________________
+dropout_2 (Dropout)          (None, 256)               0
+_________________________________________________________________
+dense_1 (Dense)              (None, 10)                2570
+=================================================================
+Total params: 28,969,194
+Trainable params: 28,969,194
+Non-trainable params: 0
+_________________________________________________________________
+Train on 13386 samples
+Epoch 1/60
+2020-02-15 11:20:46.358642: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cublas64_10.dll
+2020-02-15 11:20:47.369109: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cudnn64_7.dll
+2020-02-15 11:20:49.968482: W tensorflow/stream_executor/gpu/redzone_allocator.cc:312] Internal: Invoking GPU asm compilation is supported on Cuda non-Windows platforms only
+Relying on driver to perform ptx compilation. This message will be only logged once.
+13386/13386 [==============================] - 47s 3ms/sample - loss: 2.6808 - categorical_accuracy: 0.1362
+Epoch 2/60
+13386/13386 [==============================] - 41s 3ms/sample - loss: 2.2023 - categorical_accuracy: 0.1619
+Epoch 3/60
+13386/13386 [==============================] - 41s 3ms/sample - loss: 2.1204 - categorical_accuracy: 0.1971
+Epoch 4/60
+13386/13386 [==============================] - 42s 3ms/sample - loss: 1.6920 - categorical_accuracy: 0.3764
+Epoch 5/60
+13386/13386 [==============================] - 42s 3ms/sample - loss: 1.1107 - categorical_accuracy: 0.5962
+Epoch 6/60
+13386/13386 [==============================] - 42s 3ms/sample - loss: 0.8182 - categorical_accuracy: 0.7045
+Epoch 7/60
+13386/13386 [==============================] - 42s 3ms/sample - loss: 0.6858 - categorical_accuracy: 0.7473
+Epoch 8/60
+13386/13386 [==============================] - 42s 3ms/sample - loss: 0.5884 - categorical_accuracy: 0.7870
+Epoch 9/60
+13386/13386 [==============================] - 42s 3ms/sample - loss: 0.5396 - categorical_accuracy: 0.8007
+Epoch 10/60
+13386/13386 [==============================] - 52s 4ms/sample - loss: 0.4943 - categorical_accuracy: 0.8182
+Epoch 11/60
+13386/13386 [==============================] - 41s 3ms/sample - loss: 0.4575 - categorical_accuracy: 0.8335
+Epoch 12/60
+13386/13386 [==============================] - 41s 3ms/sample - loss: 0.4237 - categorical_accuracy: 0.8465
+Epoch 13/60
+13386/13386 [==============================] - 41s 3ms/sample - loss: 0.3972 - categorical_accuracy: 0.8553
+Epoch 14/60
+13386/13386 [==============================] - 41s 3ms/sample - loss: 0.3825 - categorical_accuracy: 0.8607
+Epoch 15/60
+13386/13386 [==============================] - 41s 3ms/sample - loss: 0.3644 - categorical_accuracy: 0.8720
+Epoch 16/60
+13386/13386 [==============================] - 41s 3ms/sample - loss: 0.3472 - categorical_accuracy: 0.8743
+Epoch 17/60
+13386/13386 [==============================] - 46s 3ms/sample - loss: 0.3422 - categorical_accuracy: 0.8760
+Epoch 18/60
+13386/13386 [==============================] - 41s 3ms/sample - loss: 0.3283 - categorical_accuracy: 0.8814
+Epoch 19/60
+13386/13386 [==============================] - 41s 3ms/sample - loss: 0.3078 - categorical_accuracy: 0.8859
+Epoch 20/60
+13386/13386 [==============================] - 41s 3ms/sample - loss: 0.3051 - categorical_accuracy: 0.8917
+Epoch 21/60
+13386/13386 [==============================] - 41s 3ms/sample - loss: 0.2946 - categorical_accuracy: 0.8945
+Epoch 22/60
+13386/13386 [==============================] - 41s 3ms/sample - loss: 0.2923 - categorical_accuracy: 0.8941
+Epoch 23/60
+13386/13386 [==============================] - 41s 3ms/sample - loss: 0.2725 - categorical_accuracy: 0.9021
+Epoch 24/60
+13386/13386 [==============================] - 41s 3ms/sample - loss: 0.2768 - categorical_accuracy: 0.9006
+Epoch 25/60
+13386/13386 [==============================] - 41s 3ms/sample - loss: 0.2513 - categorical_accuracy: 0.9085
+Epoch 26/60
+13386/13386 [==============================] - 41s 3ms/sample - loss: 0.2560 - categorical_accuracy: 0.9058
+Epoch 27/60
+13386/13386 [==============================] - 41s 3ms/sample - loss: 0.2514 - categorical_accuracy: 0.9101
+Epoch 28/60
+13386/13386 [==============================] - 41s 3ms/sample - loss: 0.2438 - categorical_accuracy: 0.9143
+Epoch 29/60
+13386/13386 [==============================] - 41s 3ms/sample - loss: 0.2421 - categorical_accuracy: 0.9141
+Epoch 30/60
+13386/13386 [==============================] - 41s 3ms/sample - loss: 0.2291 - categorical_accuracy: 0.9168
+Epoch 31/60
+13386/13386 [==============================] - 41s 3ms/sample - loss: 0.2290 - categorical_accuracy: 0.9177
+Epoch 32/60
+13386/13386 [==============================] - 41s 3ms/sample - loss: 0.2188 - categorical_accuracy: 0.9225
+Epoch 33/60
+13386/13386 [==============================] - 41s 3ms/sample - loss: 0.2156 - categorical_accuracy: 0.9228
+Epoch 34/60
+13386/13386 [==============================] - 41s 3ms/sample - loss: 0.2239 - categorical_accuracy: 0.9213
+Epoch 35/60
+13386/13386 [==============================] - 41s 3ms/sample - loss: 0.2034 - categorical_accuracy: 0.9272
+Epoch 36/60
+13386/13386 [==============================] - 41s 3ms/sample - loss: 0.2089 - categorical_accuracy: 0.9285
+Epoch 37/60
+13386/13386 [==============================] - 41s 3ms/sample - loss: 0.1991 - categorical_accuracy: 0.9292
+Epoch 38/60
+13386/13386 [==============================] - 41s 3ms/sample - loss: 0.1990 - categorical_accuracy: 0.9272
+Epoch 39/60
+13386/13386 [==============================] - 41s 3ms/sample - loss: 0.1867 - categorical_accuracy: 0.9331
+Epoch 40/60
+13386/13386 [==============================] - 41s 3ms/sample - loss: 0.1894 - categorical_accuracy: 0.9299
+Epoch 41/60
+13386/13386 [==============================] - 41s 3ms/sample - loss: 0.1976 - categorical_accuracy: 0.9293
+Epoch 42/60
+13386/13386 [==============================] - 41s 3ms/sample - loss: 0.1805 - categorical_accuracy: 0.9346
+Epoch 43/60
+13386/13386 [==============================] - 48s 4ms/sample - loss: 0.1904 - categorical_accuracy: 0.9340
+Epoch 44/60
+13386/13386 [==============================] - 42s 3ms/sample - loss: 0.1854 - categorical_accuracy: 0.9340
+Epoch 45/60
+13386/13386 [==============================] - 42s 3ms/sample - loss: 0.1891 - categorical_accuracy: 0.9355
+Epoch 46/60
+13386/13386 [==============================] - 42s 3ms/sample - loss: 0.1817 - categorical_accuracy: 0.9355
+Epoch 47/60
+13386/13386 [==============================] - 42s 3ms/sample - loss: 0.1737 - categorical_accuracy: 0.9398
+Epoch 48/60
+13386/13386 [==============================] - 42s 3ms/sample - loss: 0.1664 - categorical_accuracy: 0.9402
+Epoch 49/60
+13386/13386 [==============================] - 42s 3ms/sample - loss: 0.1729 - categorical_accuracy: 0.9373
+Epoch 50/60
+13386/13386 [==============================] - 42s 3ms/sample - loss: 0.1597 - categorical_accuracy: 0.9444
+Epoch 51/60
+13386/13386 [==============================] - 42s 3ms/sample - loss: 0.1666 - categorical_accuracy: 0.9411
+Epoch 52/60
+13386/13386 [==============================] - 42s 3ms/sample - loss: 0.1548 - categorical_accuracy: 0.9455
+Epoch 53/60
+13386/13386 [==============================] - 41s 3ms/sample - loss: 0.1666 - categorical_accuracy: 0.9426
+Epoch 54/60
+13386/13386 [==============================] - 42s 3ms/sample - loss: 0.1595 - categorical_accuracy: 0.9434
+Epoch 55/60
+13386/13386 [==============================] - 42s 3ms/sample - loss: 0.1616 - categorical_accuracy: 0.9417
+Epoch 56/60
+13386/13386 [==============================] - 42s 3ms/sample - loss: 0.1631 - categorical_accuracy: 0.9423
+Epoch 57/60
+13386/13386 [==============================] - 42s 3ms/sample - loss: 0.1679 - categorical_accuracy: 0.9407
+Epoch 58/60
+13386/13386 [==============================] - 42s 3ms/sample - loss: 0.1602 - categorical_accuracy: 0.9433
+Epoch 59/60
+13386/13386 [==============================] - 42s 3ms/sample - loss: 0.1535 - categorical_accuracy: 0.9464
+Epoch 60/60
+13386/13386 [==============================] - 42s 3ms/sample - loss: 0.1458 - categorical_accuracy: 0.9479
+Testing...
+4461/4461 [==============================] - 5s 1ms/sample - loss: 0.0981 - categorical_accuracy: 0.9670
+
+D:\Kinect2Dataset>python trainCNN.py
+2020-02-15 12:06:09.681489: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cudart64_101.dll
+Loading data...
+[========================================================================] 100%
+Partitioning data...
+[========================================================================] 100%
+2020-02-15 12:07:07.203714: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library nvcuda.dll
+2020-02-15 12:07:07.283273: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1555] Found device 0 with properties:
+pciBusID: 0000:01:00.0 name: GeForce GTX 1060 computeCapability: 6.1
+coreClock: 1.6705GHz coreCount: 10 deviceMemorySize: 6.00GiB deviceMemoryBandwidth: 178.99GiB/s
+2020-02-15 12:07:07.297004: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cudart64_101.dll
+2020-02-15 12:07:07.372081: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cublas64_10.dll
+2020-02-15 12:07:07.452621: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cufft64_10.dll
+2020-02-15 12:07:07.473675: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library curand64_10.dll
+2020-02-15 12:07:07.561593: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cusolver64_10.dll
+2020-02-15 12:07:07.604137: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cusparse64_10.dll
+2020-02-15 12:07:07.778090: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cudnn64_7.dll
+2020-02-15 12:07:07.787867: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1697] Adding visible gpu devices: 0
+2020-02-15 12:07:07.796967: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2
+2020-02-15 12:07:07.808691: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1555] Found device 0 with properties:
+pciBusID: 0000:01:00.0 name: GeForce GTX 1060 computeCapability: 6.1
+coreClock: 1.6705GHz coreCount: 10 deviceMemorySize: 6.00GiB deviceMemoryBandwidth: 178.99GiB/s
+2020-02-15 12:07:07.821317: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cudart64_101.dll
+2020-02-15 12:07:07.826930: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cublas64_10.dll
+2020-02-15 12:07:07.833841: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cufft64_10.dll
+2020-02-15 12:07:07.839229: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library curand64_10.dll
+2020-02-15 12:07:07.844486: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cusolver64_10.dll
+2020-02-15 12:07:07.852591: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cusparse64_10.dll
+2020-02-15 12:07:07.858243: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cudnn64_7.dll
+2020-02-15 12:07:07.864296: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1697] Adding visible gpu devices: 0
+2020-02-15 12:07:12.189561: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1096] Device interconnect StreamExecutor with strength 1 edge matrix:
+2020-02-15 12:07:12.197780: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1102]      0
+2020-02-15 12:07:12.201701: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] 0:   N
+2020-02-15 12:07:12.210422: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1241] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 4702 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1060, pci bus id: 0000:01:00.0, compute capability: 6.1)
+Model: "sequential"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #
+=================================================================
+conv2d (Conv2D)              (None, 178, 178, 32)      320
+_________________________________________________________________
+conv2d_1 (Conv2D)            (None, 176, 176, 32)      9248
+_________________________________________________________________
+max_pooling2d (MaxPooling2D) (None, 88, 88, 32)        0
+_________________________________________________________________
+dropout (Dropout)            (None, 88, 88, 32)        0
+_________________________________________________________________
+conv2d_2 (Conv2D)            (None, 86, 86, 64)        18496
+_________________________________________________________________
+conv2d_3 (Conv2D)            (None, 84, 84, 64)        36928
+_________________________________________________________________
+max_pooling2d_1 (MaxPooling2 (None, 42, 42, 64)        0
+_________________________________________________________________
+dropout_1 (Dropout)          (None, 42, 42, 64)        0
+_________________________________________________________________
+flatten (Flatten)            (None, 112896)            0
+_________________________________________________________________
+dense (Dense)                (None, 256)               28901632
+_________________________________________________________________
+dropout_2 (Dropout)          (None, 256)               0
+_________________________________________________________________
+dense_1 (Dense)              (None, 10)                2570
+=================================================================
+Total params: 28,969,194
+Trainable params: 28,969,194
+Non-trainable params: 0
+_________________________________________________________________
+Train on 13386 samples
+Epoch 1/60
+2020-02-15 12:07:13.802080: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cublas64_10.dll
+2020-02-15 12:07:14.848261: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cudnn64_7.dll
+2020-02-15 12:07:16.993620: W tensorflow/stream_executor/gpu/redzone_allocator.cc:312] Internal: Invoking GPU asm compilation is supported on Cuda non-Windows platforms only
+Relying on driver to perform ptx compilation. This message will be only logged once.
+13386/13386 [==============================] - 57s 4ms/sample - loss: 2.9606 - categorical_accuracy: 0.1369
+Epoch 2/60
+13386/13386 [==============================] - 51s 4ms/sample - loss: 2.2217 - categorical_accuracy: 0.1512
+Epoch 3/60
+13386/13386 [==============================] - 51s 4ms/sample - loss: 2.0881 - categorical_accuracy: 0.2198
+Epoch 4/60
+13386/13386 [==============================] - 51s 4ms/sample - loss: 1.5565 - categorical_accuracy: 0.4281
+Epoch 5/60
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.9524 - categorical_accuracy: 0.6526
+Epoch 6/60
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.7025 - categorical_accuracy: 0.7473
+Epoch 7/60
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.5624 - categorical_accuracy: 0.7968
+Epoch 8/60
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.5031 - categorical_accuracy: 0.8155
+Epoch 9/60
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.4504 - categorical_accuracy: 0.8373
+Epoch 10/60
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.4108 - categorical_accuracy: 0.8491
+Epoch 11/60
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.3791 - categorical_accuracy: 0.8626
+Epoch 12/60
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.3501 - categorical_accuracy: 0.8766
+Epoch 13/60
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.3480 - categorical_accuracy: 0.8744
+Epoch 14/60
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.3220 - categorical_accuracy: 0.8838
+Epoch 15/60
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.3018 - categorical_accuracy: 0.8896
+Epoch 16/60
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.3001 - categorical_accuracy: 0.8895
+Epoch 17/60
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.2775 - categorical_accuracy: 0.9017
+Epoch 18/60
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.2742 - categorical_accuracy: 0.9012
+Epoch 19/60
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.2680 - categorical_accuracy: 0.9066
+Epoch 20/60
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.2546 - categorical_accuracy: 0.9098
+Epoch 21/60
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.2555 - categorical_accuracy: 0.9064
+Epoch 22/60
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.2395 - categorical_accuracy: 0.9139
+Epoch 23/60
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.2346 - categorical_accuracy: 0.9152
+Epoch 24/60
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.2265 - categorical_accuracy: 0.9189
+Epoch 25/60
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.2233 - categorical_accuracy: 0.9210
+Epoch 26/60
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.2154 - categorical_accuracy: 0.9215
+Epoch 27/60
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.2028 - categorical_accuracy: 0.9279
+Epoch 28/60
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.2235 - categorical_accuracy: 0.9225
+Epoch 29/60
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1964 - categorical_accuracy: 0.9303
+Epoch 30/60
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1991 - categorical_accuracy: 0.9296
+Epoch 31/60
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.2026 - categorical_accuracy: 0.9294
+Epoch 32/60
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1827 - categorical_accuracy: 0.9363
+Epoch 33/60
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1828 - categorical_accuracy: 0.9361
+Epoch 34/60
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1970 - categorical_accuracy: 0.9296
+Epoch 35/60
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1804 - categorical_accuracy: 0.9372
+Epoch 36/60
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1708 - categorical_accuracy: 0.9391
+Epoch 37/60
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1683 - categorical_accuracy: 0.9414
+Epoch 38/60
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1713 - categorical_accuracy: 0.9404
+Epoch 39/60
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1793 - categorical_accuracy: 0.9380
+Epoch 40/60
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1595 - categorical_accuracy: 0.9449
+Epoch 41/60
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1563 - categorical_accuracy: 0.9443
+Epoch 42/60
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1706 - categorical_accuracy: 0.9413
+Epoch 43/60
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1777 - categorical_accuracy: 0.9399
+Epoch 44/60
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1612 - categorical_accuracy: 0.9434
+Epoch 45/60
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1627 - categorical_accuracy: 0.9426
+Epoch 46/60
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1615 - categorical_accuracy: 0.9469
+Epoch 47/60
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1569 - categorical_accuracy: 0.9454
+Epoch 48/60
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1498 - categorical_accuracy: 0.9500
+Epoch 49/60
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1732 - categorical_accuracy: 0.9420
+Epoch 50/60
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1509 - categorical_accuracy: 0.9479
+Epoch 51/60
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1473 - categorical_accuracy: 0.9485
+Epoch 52/60
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1555 - categorical_accuracy: 0.9466
+Epoch 53/60
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1512 - categorical_accuracy: 0.9495
+Epoch 54/60
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1496 - categorical_accuracy: 0.9491
+Epoch 55/60
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1429 - categorical_accuracy: 0.9524
+Epoch 56/60
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1584 - categorical_accuracy: 0.9470
+Epoch 57/60
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1496 - categorical_accuracy: 0.9500
+Epoch 58/60
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1484 - categorical_accuracy: 0.9501
+Epoch 59/60
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1380 - categorical_accuracy: 0.9532
+Epoch 60/60
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1508 - categorical_accuracy: 0.9502
+Testing...
+4461/4461 [==============================] - 5s 1ms/sample - loss: 0.0684 - categorical_accuracy: 0.9762
+
+D:\Kinect2Dataset>python trainCNN.py
+2020-02-15 13:14:32.699894: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cudart64_101.dll
+Loading data...
+[========================================================================] 100%
+Partitioning data...
+[========================================================================] 100%
+2020-02-15 13:15:27.531445: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library nvcuda.dll
+2020-02-15 13:15:27.596675: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1555] Found device 0 with properties:
+pciBusID: 0000:01:00.0 name: GeForce GTX 1060 computeCapability: 6.1
+coreClock: 1.6705GHz coreCount: 10 deviceMemorySize: 6.00GiB deviceMemoryBandwidth: 178.99GiB/s
+2020-02-15 13:15:27.611578: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cudart64_101.dll
+2020-02-15 13:15:27.674247: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cublas64_10.dll
+2020-02-15 13:15:27.730228: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cufft64_10.dll
+2020-02-15 13:15:27.745636: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library curand64_10.dll
+2020-02-15 13:15:27.803896: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cusolver64_10.dll
+2020-02-15 13:15:27.834400: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cusparse64_10.dll
+2020-02-15 13:15:27.951888: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cudnn64_7.dll
+2020-02-15 13:15:27.961190: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1697] Adding visible gpu devices: 0
+2020-02-15 13:15:27.969621: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2
+2020-02-15 13:15:27.980408: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1555] Found device 0 with properties:
+pciBusID: 0000:01:00.0 name: GeForce GTX 1060 computeCapability: 6.1
+coreClock: 1.6705GHz coreCount: 10 deviceMemorySize: 6.00GiB deviceMemoryBandwidth: 178.99GiB/s
+2020-02-15 13:15:27.995073: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cudart64_101.dll
+2020-02-15 13:15:28.000756: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cublas64_10.dll
+2020-02-15 13:15:28.008370: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cufft64_10.dll
+2020-02-15 13:15:28.014792: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library curand64_10.dll
+2020-02-15 13:15:28.021814: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cusolver64_10.dll
+2020-02-15 13:15:28.027968: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cusparse64_10.dll
+2020-02-15 13:15:28.033994: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cudnn64_7.dll
+2020-02-15 13:15:28.042343: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1697] Adding visible gpu devices: 0
+2020-02-15 13:15:31.156563: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1096] Device interconnect StreamExecutor with strength 1 edge matrix:
+2020-02-15 13:15:31.163814: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1102]      0
+2020-02-15 13:15:31.167562: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] 0:   N
+2020-02-15 13:15:31.174700: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1241] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 4702 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1060, pci bus id: 0000:01:00.0, compute capability: 6.1)
+Model: "sequential"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #
+=================================================================
+conv2d (Conv2D)              (None, 178, 178, 32)      320
+_________________________________________________________________
+conv2d_1 (Conv2D)            (None, 176, 176, 32)      9248
+_________________________________________________________________
+max_pooling2d (MaxPooling2D) (None, 88, 88, 32)        0
+_________________________________________________________________
+dropout (Dropout)            (None, 88, 88, 32)        0
+_________________________________________________________________
+conv2d_2 (Conv2D)            (None, 86, 86, 64)        18496
+_________________________________________________________________
+conv2d_3 (Conv2D)            (None, 84, 84, 64)        36928
+_________________________________________________________________
+max_pooling2d_1 (MaxPooling2 (None, 42, 42, 64)        0
+_________________________________________________________________
+dropout_1 (Dropout)          (None, 42, 42, 64)        0
+_________________________________________________________________
+flatten (Flatten)            (None, 112896)            0
+_________________________________________________________________
+dense (Dense)                (None, 256)               28901632
+_________________________________________________________________
+dropout_2 (Dropout)          (None, 256)               0
+_________________________________________________________________
+dense_1 (Dense)              (None, 10)                2570
+=================================================================
+Total params: 28,969,194
+Trainable params: 28,969,194
+Non-trainable params: 0
+_________________________________________________________________
+Train on 13386 samples
+Epoch 1/70
+2020-02-15 13:15:32.843508: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cublas64_10.dll
+2020-02-15 13:15:33.657191: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cudnn64_7.dll
+2020-02-15 13:15:35.720173: W tensorflow/stream_executor/gpu/redzone_allocator.cc:312] Internal: Invoking GPU asm compilation is supported on Cuda non-Windows platforms only
+Relying on driver to perform ptx compilation. This message will be only logged once.
+13386/13386 [==============================] - 57s 4ms/sample - loss: 2.5663 - categorical_accuracy: 0.1446
+Epoch 2/70
+13386/13386 [==============================] - 52s 4ms/sample - loss: 2.0500 - categorical_accuracy: 0.2400
+Epoch 3/70
+13386/13386 [==============================] - 52s 4ms/sample - loss: 1.4027 - categorical_accuracy: 0.4892
+Epoch 4/70
+13386/13386 [==============================] - 52s 4ms/sample - loss: 0.9954 - categorical_accuracy: 0.6384
+Epoch 5/70
+13386/13386 [==============================] - 52s 4ms/sample - loss: 0.7568 - categorical_accuracy: 0.7249
+Epoch 6/70
+13386/13386 [==============================] - 60s 4ms/sample - loss: 0.6304 - categorical_accuracy: 0.7693
+Epoch 7/70
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.5551 - categorical_accuracy: 0.7959
+Epoch 8/70
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.4895 - categorical_accuracy: 0.8214
+Epoch 9/70
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.4487 - categorical_accuracy: 0.8355
+Epoch 10/70
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.4188 - categorical_accuracy: 0.8456
+Epoch 11/70
+13386/13386 [==============================] - 52s 4ms/sample - loss: 0.4022 - categorical_accuracy: 0.8547
+Epoch 12/70
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.3738 - categorical_accuracy: 0.8625
+Epoch 13/70
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.3597 - categorical_accuracy: 0.8720
+Epoch 14/70
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.3298 - categorical_accuracy: 0.8782
+Epoch 15/70
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.3190 - categorical_accuracy: 0.8854
+Epoch 16/70
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.3146 - categorical_accuracy: 0.8870
+Epoch 17/70
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.2864 - categorical_accuracy: 0.8965
+Epoch 18/70
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.2952 - categorical_accuracy: 0.8953
+Epoch 19/70
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.2718 - categorical_accuracy: 0.9005
+Epoch 20/70
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.2713 - categorical_accuracy: 0.9049
+Epoch 21/70
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.2734 - categorical_accuracy: 0.9006
+Epoch 22/70
+13386/13386 [==============================] - 74s 6ms/sample - loss: 0.2442 - categorical_accuracy: 0.9105
+Epoch 23/70
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.2381 - categorical_accuracy: 0.9139
+Epoch 24/70
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.2377 - categorical_accuracy: 0.9155
+Epoch 25/70
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.2271 - categorical_accuracy: 0.9199
+Epoch 26/70
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.2300 - categorical_accuracy: 0.9163
+Epoch 27/70
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.2257 - categorical_accuracy: 0.9193
+Epoch 28/70
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.2067 - categorical_accuracy: 0.9278
+Epoch 29/70
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.2059 - categorical_accuracy: 0.9263
+Epoch 30/70
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.2066 - categorical_accuracy: 0.9270
+Epoch 31/70
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1982 - categorical_accuracy: 0.9302
+Epoch 32/70
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1975 - categorical_accuracy: 0.9295
+Epoch 33/70
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1836 - categorical_accuracy: 0.9366
+Epoch 34/70
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1924 - categorical_accuracy: 0.9325
+Epoch 35/70
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1945 - categorical_accuracy: 0.9314
+Epoch 36/70
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1884 - categorical_accuracy: 0.9331
+Epoch 37/70
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1750 - categorical_accuracy: 0.9386
+Epoch 38/70
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1627 - categorical_accuracy: 0.9421
+Epoch 39/70
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1739 - categorical_accuracy: 0.9397
+Epoch 40/70
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1676 - categorical_accuracy: 0.9411
+Epoch 41/70
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1800 - categorical_accuracy: 0.9388
+Epoch 42/70
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1629 - categorical_accuracy: 0.9411
+Epoch 43/70
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1595 - categorical_accuracy: 0.9425
+Epoch 44/70
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1600 - categorical_accuracy: 0.9461
+Epoch 45/70
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1582 - categorical_accuracy: 0.9450
+Epoch 46/70
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1602 - categorical_accuracy: 0.9433
+Epoch 47/70
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1567 - categorical_accuracy: 0.9449
+Epoch 48/70
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1588 - categorical_accuracy: 0.9443
+Epoch 49/70
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1473 - categorical_accuracy: 0.9504
+Epoch 50/70
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1616 - categorical_accuracy: 0.9429
+Epoch 51/70
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1533 - categorical_accuracy: 0.9472
+Epoch 52/70
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1334 - categorical_accuracy: 0.9530
+Epoch 53/70
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1538 - categorical_accuracy: 0.9486
+Epoch 54/70
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1509 - categorical_accuracy: 0.9489
+Epoch 55/70
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1411 - categorical_accuracy: 0.9504
+Epoch 56/70
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1534 - categorical_accuracy: 0.9473
+Epoch 57/70
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1450 - categorical_accuracy: 0.9490
+Epoch 58/70
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1549 - categorical_accuracy: 0.9478
+Epoch 59/70
+13386/13386 [==============================] - 52s 4ms/sample - loss: 0.1344 - categorical_accuracy: 0.9537
+Epoch 60/70
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1292 - categorical_accuracy: 0.9535
+Epoch 61/70
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1573 - categorical_accuracy: 0.9488
+Epoch 62/70
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1214 - categorical_accuracy: 0.9572
+Epoch 63/70
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1523 - categorical_accuracy: 0.9477
+Epoch 64/70
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1324 - categorical_accuracy: 0.9554
+Epoch 65/70
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1444 - categorical_accuracy: 0.9514
+Epoch 66/70
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1334 - categorical_accuracy: 0.9543
+Epoch 67/70
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1225 - categorical_accuracy: 0.9571
+Epoch 68/70
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1223 - categorical_accuracy: 0.9575
+Epoch 69/70
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1295 - categorical_accuracy: 0.9532
+Epoch 70/70
+13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1551 - categorical_accuracy: 0.9498
+Testing...
+4461/4461 [==============================] - 5s 1ms/sample - loss: 0.0643 - categorical_accuracy: 0.9758

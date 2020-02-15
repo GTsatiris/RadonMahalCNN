@@ -15,13 +15,14 @@ import progressbar
 
 DATASIZE = 17847
 
+subj = ['s1_', 's2_', 's3_', 's4_', 's5_', 's6_']
+
 ALL_DATA = np.zeros((DATASIZE, 180, 180, 1))
 ALL_CLS = np.zeros(DATASIZE, dtype=int)
 
+print('Loading data...')
 directory = os.listdir('Data/NPZ')
 index = 0
-
-print('Loading data...')
 bar = progressbar.ProgressBar(maxval=DATASIZE, widgets=[progressbar.Bar('=', '[', ']'), ' ', progressbar.Percentage()])
 bar.start()
 for sdir in directory:
@@ -38,7 +39,7 @@ for sdir in directory:
         index = index + 1
 bar.finish()
 
-TESTSIZE = int(DATASIZE * 0.2)
+TESTSIZE = int(DATASIZE * 0.25)
 testIndexes = random.sample(range(0, DATASIZE), TESTSIZE)
 
 TRAINSIZE = DATASIZE - TESTSIZE
@@ -48,10 +49,9 @@ y_train = np.zeros(TRAINSIZE, dtype=int)
 x_test = np.zeros((TESTSIZE, 180, 180, 1))
 y_test = np.zeros(TESTSIZE, dtype=int)
 
+print('Partitioning data...')
 trainIdx = 0
 testIdx = 0
-
-print('Partitioning data...')
 bar = progressbar.ProgressBar(maxval=DATASIZE, widgets=[progressbar.Bar('=', '[', ']'), ' ', progressbar.Percentage()])
 bar.start()
 for idx in range(0, DATASIZE):
@@ -89,11 +89,12 @@ model.summary()
 
 # sgd = SGD(lr=0.0001, decay=1e-6, momentum=0.9, nesterov=True)
 # model.compile(loss='sparse_categorical_crossentropy', optimizer=tensorflow.keras.optimizers.Adadelta(), metrics=['sparse_categorical_accuracy'])
-model.compile(loss='categorical_crossentropy', optimizer=tf.keras.optimizers.Adam(learning_rate=0.0001, beta_1=0.9, beta_2=0.999, amsgrad=False), metrics=['accuracy'])
+# model.compile(loss='categorical_crossentropy', optimizer=tf.keras.optimizers.Adam(learning_rate=0.001, beta_1=0.9, beta_2=0.999, amsgrad=False), metrics=['categorical_accuracy'])
+model.compile(loss='categorical_crossentropy', optimizer=tf.keras.optimizers.Nadam(learning_rate=0.001, beta_1=0.9, beta_2=0.999), metrics=['categorical_accuracy'])
 
 # history = model.fit(x_train, y_train, batch_size=64, epochs=10)
 # test_loss, test_acc = model.evaluate(x_test, y_test, batch_size=64)
 
-history = model.fit(x_train, y_train_C, batch_size=32, epochs=10)
+history = model.fit(x_train, y_train_C, batch_size=32, epochs=60)
 print('Testing...')
 test_loss, test_acc = model.evaluate(x_test, y_test_C, batch_size=32)
