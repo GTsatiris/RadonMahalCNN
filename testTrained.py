@@ -3,7 +3,7 @@ import numpy as np
 import tensorflow as tf
 import os
 
-model = tf.keras.models.load_model('s1_to_s5_model.h5')
+model = tf.keras.models.load_model('s2_to_s6_model.h5')
 
 directory = os.listdir('Data/NPZ')
 

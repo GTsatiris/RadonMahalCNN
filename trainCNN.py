@@ -71,9 +71,6 @@ if NotLOO:
     y_train_C = tf.keras.utils.to_categorical(y_train, num_classes=10)
     y_test_C = tf.keras.utils.to_categorical(y_test, num_classes=10)
 else:
-    ALL_DATA = np.zeros((DATASIZE, 180, 180, 1))
-    ALL_CLS = np.zeros(DATASIZE, dtype=int)
-
     x_train_L = []
     y_train = []
     x_test_L = []
@@ -87,20 +84,25 @@ else:
     for sdir in directory:
         sdirSTR = 'Data/NPZ/' + sdir
         subdir = os.listdir(sdirSTR)
-        if 's1_' in sdirSTR:
+        frNo = 0
+        if 's6_' in sdirSTR:
             for fname in subdir:
-                data = np.load(sdirSTR + '/' + fname)
-                x_test_L.append(data['sino'])
-                y_test.append(data['clNum'] - 1)
-                bar.update(index + 1)
-                index = index + 1
+                frNo = frNo + 1
+                if frNo > 25:
+                    data = np.load(sdirSTR + '/' + fname)
+                    x_test_L.append(data['sino'])
+                    y_test.append(data['clNum'] - 1)
+                    bar.update(index + 1)
+                    index = index + 1
         else:
             for fname in subdir:
-                data = np.load(sdirSTR + '/' + fname)
-                x_train_L.append(data['sino'])
-                y_train.append(data['clNum'] - 1)
-                bar.update(index + 1)
-                index = index + 1
+                frNo = frNo + 1
+                if frNo > 25:
+                    data = np.load(sdirSTR + '/' + fname)
+                    x_train_L.append(data['sino'])
+                    y_train.append(data['clNum'] - 1)
+                    bar.update(index + 1)
+                    index = index + 1
     bar.finish()
     x_train = np.asarray(x_train_L).reshape([len(x_train_L), 180, 180, 1])
     x_test = np.asarray(x_test_L).reshape([len(x_test_L), 180, 180, 1])
@@ -138,4 +140,4 @@ history = model.fit(x_train, y_train_C, batch_size=32, epochs=60)
 print('Testing...')
 test_loss, test_acc = model.evaluate(x_test, y_test_C, batch_size=32)
 
-model.save('s1_to_s5_model.h5')
+model.save('s1_to_s5_model_after_30_frames.h5')

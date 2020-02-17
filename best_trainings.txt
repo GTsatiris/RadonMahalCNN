@@ -599,3 +599,7 @@ Epoch 70/70
 13386/13386 [==============================] - 51s 4ms/sample - loss: 0.1551 - categorical_accuracy: 0.9498
 Testing...
 4461/4461 [==============================] - 5s 1ms/sample - loss: 0.0643 - categorical_accuracy: 0.9758
+
+Testing...
+1368/1368 [==============================] - 2s 1ms/sample - loss: 1.7436 - categorical_accuracy: 0.6404
+s6 -30f
