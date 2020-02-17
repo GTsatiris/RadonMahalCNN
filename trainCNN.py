@@ -17,6 +17,8 @@ DATASIZE = 17847
 directory = os.listdir('Data/NPZ')
 
 subj = ['s1_', 's2_', 's3_', 's4_', 's5_', 's6_']
+frame20 = ['frame_5.', 'frame_6.', 'frame_7.', 'frame_8.', 'frame_9.', 'frame_10.', 'frame_11.', 'frame_12.', 'frame_13.', 'frame_14.', 'frame_15.', 'frame_16.', 'frame_17.', 'frame_18.', 'frame_19.', 'frame_20.']
+frame30 = ['frame_5.', 'frame_6.', 'frame_7.', 'frame_8.', 'frame_9.', 'frame_10.', 'frame_11.', 'frame_12.', 'frame_13.', 'frame_14.', 'frame_15.', 'frame_16.', 'frame_17.', 'frame_18.', 'frame_19.', 'frame_20.', 'frame_21.', 'frame_22.', 'frame_23.', 'frame_24.', 'frame_25.', 'frame_26.', 'frame_27.', 'frame_28.', 'frame_29.', 'frame_30.']
 
 NotLOO = False
 
@@ -84,11 +86,9 @@ else:
     for sdir in directory:
         sdirSTR = 'Data/NPZ/' + sdir
         subdir = os.listdir(sdirSTR)
-        frNo = 0
-        if 's6_' in sdirSTR:
+        if 's1_' in sdirSTR:
             for fname in subdir:
-                frNo = frNo + 1
-                if frNo > 25:
+                if sum(x in fname for x in frame30) == 0:
                     data = np.load(sdirSTR + '/' + fname)
                     x_test_L.append(data['sino'])
                     y_test.append(data['clNum'] - 1)
@@ -96,8 +96,7 @@ else:
                     index = index + 1
         else:
             for fname in subdir:
-                frNo = frNo + 1
-                if frNo > 25:
+                if sum(x in fname for x in frame30) == 0:
                     data = np.load(sdirSTR + '/' + fname)
                     x_train_L.append(data['sino'])
                     y_train.append(data['clNum'] - 1)
@@ -140,4 +139,4 @@ history = model.fit(x_train, y_train_C, batch_size=32, epochs=60)
 print('Testing...')
 test_loss, test_acc = model.evaluate(x_test, y_test_C, batch_size=32)
 
-model.save('s1_to_s5_model_after_30_frames.h5')
+model.save('cross_with_s1_after_frame_30.h5')

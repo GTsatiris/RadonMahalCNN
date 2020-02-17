@@ -603,3 +603,30 @@ Testing...
 Testing...
 1368/1368 [==============================] - 2s 1ms/sample - loss: 1.7436 - categorical_accuracy: 0.6404
 s6 -30f
+
+--------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------
+
+cross_with_s6_after_frame_20
+11229/11229 [==============================] - 43s 4ms/sample - loss: 0.0481 - categorical_accuracy: 0.9853
+Testing...
+1818/1818 [==============================] - 2s 1ms/sample - loss: 1.6175 - categorical_accuracy: 0.6942
+Final ACC: 0.86
+
+cross_with_s6_after_frame_30
+8729/8729 [==============================] - 34s 4ms/sample - loss: 0.0301 - categorical_accuracy: 0.9916
+Testing...
+1318/1318 [==============================] - 2s 1ms/sample - loss: 0.7149 - categorical_accuracy: 0.8209
+Final ACC: 0.9
+
+cross_with_s1_after_frame_20
+11143/11143 [==============================] - 43s 4ms/sample - loss: 0.0546 - categorical_accuracy: 0.9835
+Testing...
+1904/1904 [==============================] - 2s 1ms/sample - loss: 4.3550 - categorical_accuracy: 0.4695
+Final ACC: 0.5
+
+cross_with_s1_after_frame_30
+8643/8643 [==============================] - 33s 4ms/sample - loss: 0.0308 - categorical_accuracy: 0.9917
+Testing...
+1404/1404 [==============================] - 2s 1ms/sample - loss: 5.0562 - categorical_accuracy: 0.5798
+Final ACC: 0.58
