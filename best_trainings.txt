@@ -630,3 +630,39 @@ cross_with_s1_after_frame_30
 Testing...
 1404/1404 [==============================] - 2s 1ms/sample - loss: 5.0562 - categorical_accuracy: 0.5798
 Final ACC: 0.58
+
+cross_with_s2_after_frame_20
+0.9917
+Testing... NEEDS RETRAINING
+0.5798
+Final ACC: 0.66
+
+cross_with_s2_after_frame_30
+8034/8034 [==============================] - 31s 4ms/sample - loss: 0.0319 - categorical_accuracy: 0.9928
+Testing...
+2013/2013 [==============================] - 2s 1ms/sample - loss: 2.6828 - categorical_accuracy: 0.5127
+Final ACC: 0.68
+
+cross_with_s3_after_frame_20
+10347/10347 [==============================] - 40s 4ms/sample - loss: 0.0472 - categorical_accuracy: 0.9855
+Testing...
+2700/2700 [==============================] - 3s 1ms/sample - loss: 2.8047 - categorical_accuracy: 0.5978
+Final ACC: 0.66
+
+cross_with_s3_after_frame_30
+7847/7847 [==============================] - 30s 4ms/sample - loss: 0.0245 - categorical_accuracy: 0.9925
+Testing...
+2200/2200 [==============================] - 3s 1ms/sample - loss: 4.1644 - categorical_accuracy: 0.5500
+Final ACC: 0.62
+
+cross_with_s4_after_frame_20
+11048/11048 [==============================] - 42s 4ms/sample - loss: 0.0353 - categorical_accuracy: 0.9892
+Testing...
+1999/1999 [==============================] - 2s 1ms/sample - loss: 1.4821 - categorical_accuracy: 0.7899
+Final ACC: 0.82
+
+cross_with_s4_after_frame_30
+8548/8548 [==============================] - 33s 4ms/sample - loss: 0.0321 - categorical_accuracy: 0.9892
+Testing...
+1499/1499 [==============================] - 2s 1ms/sample - loss: 1.9584 - categorical_accuracy: 0.7345
+Final ACC: 0.76

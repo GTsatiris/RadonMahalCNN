@@ -86,7 +86,7 @@ else:
     for sdir in directory:
         sdirSTR = 'Data/NPZ/' + sdir
         subdir = os.listdir(sdirSTR)
-        if 's1_' in sdirSTR:
+        if 's4_' in sdirSTR:
             for fname in subdir:
                 if sum(x in fname for x in frame30) == 0:
                     data = np.load(sdirSTR + '/' + fname)
@@ -139,4 +139,4 @@ history = model.fit(x_train, y_train_C, batch_size=32, epochs=60)
 print('Testing...')
 test_loss, test_acc = model.evaluate(x_test, y_test_C, batch_size=32)
 
-model.save('cross_with_s1_after_frame_30.h5')
+model.save('cross_with_s4_after_frame_30.h5')
