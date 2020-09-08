@@ -3,4 +3,5 @@
 *.rar
 *.zip
 *.h5
-./Data/
+
+Data/
