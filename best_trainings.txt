@@ -666,3 +666,15 @@ cross_with_s4_after_frame_30
 Testing...
 1499/1499 [==============================] - 2s 1ms/sample - loss: 1.9584 - categorical_accuracy: 0.7345
 Final ACC: 0.76
+
+cross_with_s5_after_frame_20
+10934/10934 [==============================] - 42s 4ms/sample - loss: 0.0323 - categorical_accuracy: 0.9894
+Testing...
+2113/2113 [==============================] - 2s 1ms/sample - loss: 2.6241 - categorical_accuracy: 0.6981
+Final ACC: 0.78
+
+cross_with_s5_after_frame_30
+8434/8434 [==============================] - 32s 4ms/sample - loss: 0.0266 - categorical_accuracy: 0.9913
+Testing...
+1613/1613 [==============================] - 2s 1ms/sample - loss: 1.4707 - categorical_accuracy: 0.7092
+Final ACC: 0.8
