@@ -1,0 +1,5 @@
+./raw_npy/
+*.csv
+*.rar
+*.zip
+*.h5
