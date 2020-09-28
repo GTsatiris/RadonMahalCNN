@@ -26,6 +26,7 @@ def calculateMahalMatrix(path):
     mat = scipy.io.loadmat(path)
     mydata = mat['S_K2']['world'][0][0]
 
+    print(mydata.shape)
     # print(type(mydata))
     #
     # for joint in range(mydata.shape[0]):
@@ -98,34 +99,36 @@ def calculateRadonDataset(path):
             # io.imsave(dirPath + '/frame_{}.png'.format(str(i)), cropped_sino)
 
 
-# calculateRadonDataset("Data/a1_s2_t1_skel_K2.mat")
-# directory = os.listdir('Data')
-# for fname in directory:
-#     if 'skel' in fname:
-#         calculateRadonDataset("Data/"+fname)
-
-mat = scipy.io.loadmat("Data/a1_s1_t1_skel_K2.mat")
-# mat = scipy.io.loadmat(path)
-mydata = mat['S_K2']['world'][0][0]
-
-# print(type(mydata))
+# # calculateRadonDataset("Data/a1_s2_t1_skel_K2.mat")
+# # directory = os.listdir('Data')
+# # for fname in directory:
+# #     if 'skel' in fname:
+# #         calculateRadonDataset("Data/"+fname)
 #
-# for joint in range(mydata.shape[0]):
-#     for coord in range (mydata.shape[1]):
-#         print(mydata[joint][coord][0], end=" ")
-#     print()
+# mat = scipy.io.loadmat("Data/a1_s1_t1_skel_K2.mat")
+# # mat = scipy.io.loadmat(path)
+# mydata = mat['S_K2']['world'][0][0]
 #
-# print()
+# # print(type(mydata))
+# #
+# # for joint in range(mydata.shape[0]):
+# #     for coord in range (mydata.shape[1]):
+# #         print(mydata[joint][coord][0], end=" ")
+# #     print()
+# #
+# # print()
+# #
+# # print(mydata[:, :, 0])
 #
-# print(mydata[:, :, 0])
+# # print(mahalanobis(mydata[1, :, 0], mydata[:, :, 0]))
+#
+# mahalMatrix = np.empty([mydata.shape[2], mydata.shape[0]])
+#
+# for frame in range(mydata.shape[2]):
+#     for joint in range(mydata.shape[0]):
+#         # print(mahalanobis(mydata[12, :, frame], mydata[:, :, frame]))
+#         mahalMatrix[frame, joint] = mahalanobis(mydata[joint, :, frame], mydata[:, :, frame])
+#
+# print(mahalMatrix[0])
 
-# print(mahalanobis(mydata[1, :, 0], mydata[:, :, 0]))
-
-mahalMatrix = np.empty([mydata.shape[2], mydata.shape[0]])
-
-for frame in range(mydata.shape[2]):
-    for joint in range(mydata.shape[0]):
-        # print(mahalanobis(mydata[12, :, frame], mydata[:, :, frame]))
-        mahalMatrix[frame, joint] = mahalanobis(mydata[joint, :, frame], mydata[:, :, frame])
-
-print(mahalMatrix[0])
+calculateMahalMatrix("Data/a1_s2_t1_skel_K2.mat")

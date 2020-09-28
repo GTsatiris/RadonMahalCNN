@@ -10,9 +10,9 @@ import os
 import sys 
 
 user_name = 'user'
-save_npy_path = '/home/user/AI_workspace/datasets/NTU/raw_npy120/'
-load_txt_path = '/home/user/AI_workspace/datasets/NTU/raw_txt120/'
-missing_file_path = './ntu_rgb120_missings.txt'
+save_npy_path = 'D:/Kinect2Dataset/NTURGB-D_120_Code/Python/raw_npy/'
+load_txt_path = 'D:/Kinect2Dataset/NTURGB-D_120_Code/Python/raw_txt/'
+missing_file_path = 'D:/Kinect2Dataset/NTURGB-D_120_Code/Python/NTU_RGBD120_samples_with_missing_skeletons.txt'
 step_ranges = list(range(0,100)) # just parse range, for the purpose of paralle running. 
 
 
