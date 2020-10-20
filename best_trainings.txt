@@ -682,3 +682,40 @@ Final ACC: 0.8
 old[0] = new[1]
 old[1] = new[2]
 old[2] = new[0]
+
+NEW DATASET:
+
+A023
+
+cross_with_s6_after_frame_30
+Final ACC: 0.2849576271186441
+
+cross_with_s4_after_frame_20
+Final ACC: 0.1652542372881356
+
+A007
+
+cross_with_s6_after_frame_30
+Final ACC: περίπου 0.15
+
+
+A010
+
+cross_with_s6_after_frame_30
+Final ACC: 0.7449521785334751
+cross_with_s6_after_frame_20
+Final ACC: 0.6153028692879915
+
+cross_with_s4_after_frame_20
+Final ACC: 0.8278427205100957
+
+A050
+
+cross_with_s6_after_frame_30
+Final ACC: 0.11158342189160468
+cross_with_s6_after_frame_20
+Final ACC: 0.09989373007438895
+
+A094
+cross_with_s4_after_frame_20
+Final ACC: 0.08385744234800839

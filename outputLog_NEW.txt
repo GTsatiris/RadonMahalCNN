@@ -1,0 +1,129 @@
+-------------------------------------------
+Model: s4-20_P001-P043.h5
+-------------------------------------------
+Model: s4-20_P001-P043.h5
+-------------------------------------------
+FINAL ACC: 0.6479400749063671
+
+
+29784/29784 [==============================] - 125s 4ms/sample - loss: 1.7556 - categorical_accuracy: 0.4110
+Epoch 2/60
+29784/29784 [==============================] - 115s 4ms/sample - loss: 1.4562 - categorical_accuracy: 0.4635
+Epoch 3/60
+29784/29784 [==============================] - 115s 4ms/sample - loss: 1.2774 - categorical_accuracy: 0.5145
+Epoch 4/60
+29784/29784 [==============================] - 115s 4ms/sample - loss: 1.0947 - categorical_accuracy: 0.5814
+Epoch 5/60
+29784/29784 [==============================] - 115s 4ms/sample - loss: 0.8610 - categorical_accuracy: 0.6724
+Epoch 6/60
+29784/29784 [==============================] - 115s 4ms/sample - loss: 0.6556 - categorical_accuracy: 0.7561
+Epoch 7/60
+29784/29784 [==============================] - 115s 4ms/sample - loss: 0.4963 - categorical_accuracy: 0.8166
+Epoch 8/60
+29784/29784 [==============================] - 115s 4ms/sample - loss: 0.3978 - categorical_accuracy: 0.8562
+Epoch 9/60
+29784/29784 [==============================] - 115s 4ms/sample - loss: 0.3183 - categorical_accuracy: 0.8858
+Epoch 10/60
+29784/29784 [==============================] - 115s 4ms/sample - loss: 0.2676 - categorical_accuracy: 0.9054
+Epoch 11/60
+29784/29784 [==============================] - 115s 4ms/sample - loss: 0.2356 - categorical_accuracy: 0.9181
+Epoch 12/60
+29784/29784 [==============================] - 115s 4ms/sample - loss: 0.1971 - categorical_accuracy: 0.9323
+Epoch 13/60
+29784/29784 [==============================] - 115s 4ms/sample - loss: 0.1820 - categorical_accuracy: 0.9384
+Epoch 14/60
+29784/29784 [==============================] - 115s 4ms/sample - loss: 0.1702 - categorical_accuracy: 0.9437
+Epoch 15/60
+29784/29784 [==============================] - 115s 4ms/sample - loss: 0.1543 - categorical_accuracy: 0.9482
+Epoch 16/60
+29784/29784 [==============================] - 115s 4ms/sample - loss: 0.1470 - categorical_accuracy: 0.9508
+Epoch 17/60
+29784/29784 [==============================] - 115s 4ms/sample - loss: 0.1426 - categorical_accuracy: 0.9537
+Epoch 18/60
+29784/29784 [==============================] - 115s 4ms/sample - loss: 0.1256 - categorical_accuracy: 0.9567
+Epoch 19/60
+29784/29784 [==============================] - 115s 4ms/sample - loss: 0.1193 - categorical_accuracy: 0.9601
+Epoch 20/60
+29784/29784 [==============================] - 115s 4ms/sample - loss: 0.1091 - categorical_accuracy: 0.9635
+Epoch 21/60
+29784/29784 [==============================] - 115s 4ms/sample - loss: 0.1028 - categorical_accuracy: 0.9666
+Epoch 22/60
+29784/29784 [==============================] - 115s 4ms/sample - loss: 0.1059 - categorical_accuracy: 0.9652
+Epoch 23/60
+29784/29784 [==============================] - 115s 4ms/sample - loss: 0.1022 - categorical_accuracy: 0.9663
+Epoch 24/60
+29784/29784 [==============================] - 115s 4ms/sample - loss: 0.1019 - categorical_accuracy: 0.9673
+Epoch 25/60
+29784/29784 [==============================] - 115s 4ms/sample - loss: 0.1018 - categorical_accuracy: 0.9668
+Epoch 26/60
+29784/29784 [==============================] - 115s 4ms/sample - loss: 0.0946 - categorical_accuracy: 0.9695
+Epoch 27/60
+29784/29784 [==============================] - 115s 4ms/sample - loss: 0.0945 - categorical_accuracy: 0.9707
+Epoch 28/60
+29784/29784 [==============================] - 115s 4ms/sample - loss: 0.0853 - categorical_accuracy: 0.9712
+Epoch 29/60
+29784/29784 [==============================] - 115s 4ms/sample - loss: 0.0859 - categorical_accuracy: 0.9729
+Epoch 30/60
+29784/29784 [==============================] - 115s 4ms/sample - loss: 0.0780 - categorical_accuracy: 0.9754
+Epoch 31/60
+29784/29784 [==============================] - 115s 4ms/sample - loss: 0.0901 - categorical_accuracy: 0.9726
+Epoch 32/60
+29784/29784 [==============================] - 115s 4ms/sample - loss: 0.0943 - categorical_accuracy: 0.9726
+Epoch 33/60
+29784/29784 [==============================] - 115s 4ms/sample - loss: 0.0819 - categorical_accuracy: 0.9728
+Epoch 34/60
+29784/29784 [==============================] - 114s 4ms/sample - loss: 0.0888 - categorical_accuracy: 0.9732
+Epoch 35/60
+29784/29784 [==============================] - 114s 4ms/sample - loss: 0.0984 - categorical_accuracy: 0.9717
+Epoch 36/60
+29784/29784 [==============================] - 114s 4ms/sample - loss: 0.0768 - categorical_accuracy: 0.9763
+Epoch 37/60
+29784/29784 [==============================] - 114s 4ms/sample - loss: 0.0808 - categorical_accuracy: 0.9757
+Epoch 38/60
+29784/29784 [==============================] - 115s 4ms/sample - loss: 0.0852 - categorical_accuracy: 0.9753
+Epoch 39/60
+29784/29784 [==============================] - 115s 4ms/sample - loss: 0.0737 - categorical_accuracy: 0.9770
+Epoch 40/60
+29784/29784 [==============================] - 115s 4ms/sample - loss: 0.0713 - categorical_accuracy: 0.9785
+Epoch 41/60
+29784/29784 [==============================] - 115s 4ms/sample - loss: 0.0851 - categorical_accuracy: 0.9751
+Epoch 42/60
+29784/29784 [==============================] - 115s 4ms/sample - loss: 0.0725 - categorical_accuracy: 0.9790
+Epoch 43/60
+29784/29784 [==============================] - 115s 4ms/sample - loss: 0.0667 - categorical_accuracy: 0.9796
+Epoch 44/60
+29784/29784 [==============================] - 115s 4ms/sample - loss: 0.0862 - categorical_accuracy: 0.9749
+Epoch 45/60
+29784/29784 [==============================] - 115s 4ms/sample - loss: 0.0817 - categorical_accuracy: 0.9773
+Epoch 46/60
+29784/29784 [==============================] - 115s 4ms/sample - loss: 0.0682 - categorical_accuracy: 0.9803
+Epoch 47/60
+29784/29784 [==============================] - 115s 4ms/sample - loss: 0.0743 - categorical_accuracy: 0.9786
+Epoch 48/60
+29784/29784 [==============================] - 115s 4ms/sample - loss: 0.0865 - categorical_accuracy: 0.9753
+Epoch 49/60
+29784/29784 [==============================] - 115s 4ms/sample - loss: 0.0897 - categorical_accuracy: 0.9743
+Epoch 50/60
+29784/29784 [==============================] - 115s 4ms/sample - loss: 0.0625 - categorical_accuracy: 0.9824
+Epoch 51/60
+29784/29784 [==============================] - 115s 4ms/sample - loss: 0.0688 - categorical_accuracy: 0.9801
+Epoch 52/60
+29784/29784 [==============================] - 114s 4ms/sample - loss: 0.0701 - categorical_accuracy: 0.9800
+Epoch 53/60
+29784/29784 [==============================] - 115s 4ms/sample - loss: 0.0829 - categorical_accuracy: 0.9774
+Epoch 54/60
+29784/29784 [==============================] - 115s 4ms/sample - loss: 0.0689 - categorical_accuracy: 0.9792
+Epoch 55/60
+29784/29784 [==============================] - 115s 4ms/sample - loss: 0.0688 - categorical_accuracy: 0.9794
+Epoch 56/60
+29784/29784 [==============================] - 115s 4ms/sample - loss: 0.0696 - categorical_accuracy: 0.9803
+Epoch 57/60
+29784/29784 [==============================] - 115s 4ms/sample - loss: 0.0769 - categorical_accuracy: 0.9790
+Epoch 58/60
+29784/29784 [==============================] - 115s 4ms/sample - loss: 0.0651 - categorical_accuracy: 0.9820
+Epoch 59/60
+29784/29784 [==============================] - 115s 4ms/sample - loss: 0.0709 - categorical_accuracy: 0.9801
+Epoch 60/60
+29784/29784 [==============================] - 115s 4ms/sample - loss: 0.0627 - categorical_accuracy: 0.9818
+Testing...
+11627/11627 [==============================] - 13s 1ms/sample - loss: 6.3049 - categorical_accuracy: 0.5246

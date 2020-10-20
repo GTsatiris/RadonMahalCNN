@@ -5,6 +5,7 @@
       <excludeFolder url="file://$MODULE_DIR$/Data" />
       <excludeFolder url="file://$MODULE_DIR$/EANN_DATA" />
       <excludeFolder url="file://$MODULE_DIR$/NTURGB-D_120_Code" />
+      <excludeFolder url="file://$MODULE_DIR$/nturgb+d_rgb" />
       <excludeFolder url="file://$MODULE_DIR$/venv" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.7" jdkType="Python SDK" />
