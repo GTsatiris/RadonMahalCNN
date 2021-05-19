@@ -38,22 +38,22 @@ for sdir in directory:
                     csvWriter2.writerow(actions)
                     csvWriter3.writerow(actions)
                     for fname in subdir:
-                        if sum(x in fname for x in frame30) == 0:
-                            data = np.load(sdirSTR + '/' + fname)
-                            x_test[0, :, :, 0] = data['sino']
-                            prediction = model.predict(x_test)
-                            print('--- Found: ' + str(np.argmax(prediction)))
-                            corr = data['clNum'] - 1
-                            print('--- Correct: ' + str(corr))
-                            count = count + 1
-                            votes[np.argmax(prediction)] = votes[np.argmax(prediction)] + 1
-                            probabilities = votes / count
-                            print(votes)
-                            print(probabilities)
-                            print(prediction[0])
-                            csvWriter.writerow(votes)
-                            csvWriter2.writerow(probabilities)
-                            csvWriter3.writerow(prediction[0])
+                        # if sum(x in fname for x in frame30) == 0:
+                        data = np.load(sdirSTR + '/' + fname)
+                        x_test[0, :, :, 0] = data['sino']
+                        prediction = model.predict(x_test)
+                        print('--- Found: ' + str(np.argmax(prediction)))
+                        corr = data['clNum'] - 1
+                        print('--- Correct: ' + str(corr))
+                        count = count + 1
+                        votes[np.argmax(prediction)] = votes[np.argmax(prediction)] + 1
+                        probabilities = votes / count
+                        print(votes)
+                        print(probabilities)
+                        print(prediction[0])
+                        csvWriter.writerow(votes)
+                        csvWriter2.writerow(probabilities)
+                        csvWriter3.writerow(prediction[0])
         # input("Next sequence...?")
         conMat[np.argmax(votes)][corr] = conMat[np.argmax(votes)][corr] + 1
         if np.argmax(votes) == corr:

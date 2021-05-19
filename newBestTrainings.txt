@@ -1,0 +1,26 @@
+MOB_with_s1_after_frame_5_b32.h5
+Final ACC: 0.42
+
+MOB_with_s2_after_frame_5_b32.h5
+Final ACC: 0.46
+
+MOB_with_s3_after_frame_5_b32.h5
+Final ACC: 0.62
+
+MOB_with_s4_after_frame_5_b32.h5
+Final ACC: 0.58
+
+MOB_with_s5_after_frame_5_b32.h5
+Final ACC: 0.56
+
+MOB_with_s6_after_frame_5_b32.h5
+Final ACC: 0.40
+
+AVG: 0.51
+
+***************************************
+
+MOB_with_s1_after_frame_5_b32_gray.h5
+Final ACC: 0.26
+
+***************************************

@@ -48,23 +48,19 @@ for sdir in directory:
     sdirSTR = 'Data/NPZ/' + sdir
     subdir = os.listdir(sdirSTR)
     if subject in sdirSTR:
-        for fIdx in range(len(subdir) - 2):
+        for fIdx in range(len(subdir)):
             # if sum(x in subdir[fIdx] for x in frame20) != 0:
-            data1 = np.load(sdirSTR + '/' + subdir[fIdx])
-            data2 = np.load(sdirSTR + '/' + subdir[fIdx + 1])
-            data3 = np.load(sdirSTR + '/' + subdir[fIdx + 2])
-            x_test_L.append(np.dstack((data1['sino'], data2['sino'], data3['sino'])))
-            y_test.append([data1['clNum'] - 1])
+            data = np.load(sdirSTR + '/' + subdir[fIdx])
+            x_test_L.append(np.dstack((data['sino'], data['sino'], data['sino'])))
+            y_test.append([data['clNum'] - 1])
             bar.update(index + 1)
             index = index + 1
     else:
-        for fIdx in range(len(subdir) - 2):
-            # if sum(x in subdir[fIdx] for x in frame20) == 0:
-            data1 = np.load(sdirSTR + '/' + subdir[fIdx])
-            data2 = np.load(sdirSTR + '/' + subdir[fIdx + 1])
-            data3 = np.load(sdirSTR + '/' + subdir[fIdx + 2])
-            x_train_L.append(np.dstack((data1['sino'], data2['sino'], data3['sino'])))
-            y_train.append(data1['clNum'] - 1)
+        for fIdx in range(len(subdir)):
+            # if sum(x in subdir[fIdx] for x in frame20) != 0:
+            data = np.load(sdirSTR + '/' + subdir[fIdx])
+            x_train_L.append(np.dstack((data['sino'], data['sino'], data['sino'])))
+            y_train.append(data['clNum'] - 1)
             bar.update(index + 1)
             index = index + 1
 bar.finish()
@@ -93,7 +89,7 @@ history = model.fit(x_train, y_train_C, batch_size=bSize, epochs=45)
 print('Testing...')
 test_loss, test_acc = model.evaluate(x_test, y_test_C, batch_size=bSize)
 
-model.save('MOB0.5_with_' + subject + 'after_frame_5_b'+ str(bSize) +'.h5')
+model.save('MOB_with_' + subject + 'after_frame_5_b'+ str(bSize) +'_gray0.5.h5')
 
 # model = Sequential()
 

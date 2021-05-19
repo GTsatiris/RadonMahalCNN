@@ -7,6 +7,9 @@ from tensorflow.keras.layers import Dense, Dropout, Flatten
 from tensorflow.keras.layers import Conv2D, MaxPooling2D
 from tensorflow.keras.optimizers import SGD
 
+from sklearn.feature_selection import SelectKBest
+from sklearn.feature_selection import f_classif
+
 # DON'T NEED THEM NOW
 import os
 os.environ["PATH"] += os.pathsep + 'C:/GraphViz/bin/'
@@ -26,6 +29,7 @@ frame30 = ['frame_5.', 'frame_6.', 'frame_7.', 'frame_8.', 'frame_9.', 'frame_10
 subject = 's1_'
 bSize = 32
 
+x_train_for_F = []
 x_train_L = []
 y_train = []
 x_test_L = []
@@ -61,6 +65,7 @@ for sdir in directory:
         for fIdx in range(len(subdir) - 2):
             # if sum(x in subdir[fIdx] for x in frame20) == 0:
             data1 = np.load(sdirSTR + '/' + subdir[fIdx])
+            x_train_for_F.append(data1['sino'].flatten())
             data2 = np.load(sdirSTR + '/' + subdir[fIdx + 1])
             data3 = np.load(sdirSTR + '/' + subdir[fIdx + 2])
             x_train_L.append(np.dstack((data1['sino'], data2['sino'], data3['sino'])))
@@ -68,14 +73,53 @@ for sdir in directory:
             bar.update(index + 1)
             index = index + 1
 bar.finish()
-x_train = np.asarray(x_train_L).reshape([len(x_train_L), 180, 180, 3])
-x_test = np.asarray(x_test_L).reshape([len(x_test_L), 180, 180, 3])
+
+x_train_forF_reshaped = np.asarray(x_train_for_F).reshape([len(x_train_for_F), 32400])
+
+selector = SelectKBest(f_classif, k=14400)
+selected_features = selector.fit_transform(x_train_forF_reshaped, y_train)
+
+f_score_indexes = (-selector.scores_).argsort()[:14400]
+np.sort(f_score_indexes)
+
+np.savez(subject + 'f_score_indexes', idxs = f_score_indexes)
+
+x_train = np.empty((len(x_train_L), 120, 120, 3))
+for idx in range(len(x_train_L)):
+    for depth in range(3):
+        r = 0
+        c = 0
+        for f_idx in f_score_indexes:
+            row = int(f_idx / 180)
+            col = int(f_idx % 180)
+            x_train[idx, r, c, depth] = x_train_L[idx][row, col, depth]
+            c = c + 1
+            if c == 120:
+                r = r + 1
+                c = 0
+
+x_test = np.empty((len(x_test_L), 120, 120, 3))
+for idx in range(len(x_test_L)):
+    for depth in range(3):
+        r = 0
+        c = 0
+        for f_idx in f_score_indexes:
+            row = int(f_idx / 180)
+            col = int(f_idx % 180)
+            x_test[idx, r, c, depth] = x_test_L[idx][row, col, depth]
+            c = c + 1
+            if c == 120:
+                r = r + 1
+                c = 0
+
+# x_train = np.asarray(x_train_L).reshape([len(x_train_L), 180, 180, 3])
+# x_test = np.asarray(x_test_L).reshape([len(x_test_L), 180, 180, 3])
 
 y_train_C = tf.keras.utils.to_categorical(y_train, num_classes=10)
 y_test_C = tf.keras.utils.to_categorical(y_test, num_classes=10)
 
 model = tf.keras.applications.MobileNetV2(
-    input_shape=(180, 180, 3),
+    input_shape=(120, 120, 3),
     alpha=0.5,
     include_top=True,
     weights=None,
@@ -93,7 +137,7 @@ history = model.fit(x_train, y_train_C, batch_size=bSize, epochs=45)
 print('Testing...')
 test_loss, test_acc = model.evaluate(x_test, y_test_C, batch_size=bSize)
 
-model.save('MOB0.5_with_' + subject + 'after_frame_5_b'+ str(bSize) +'.h5')
+model.save('MOB-F_with_' + subject + 'after_frame_5_b'+ str(bSize) +'.h5')
 
 # model = Sequential()
 
